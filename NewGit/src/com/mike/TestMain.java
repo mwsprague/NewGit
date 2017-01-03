@@ -20,6 +20,10 @@ public class TestMain {
 			e.printStackTrace();
 		}
 		
+		
+		Speaker speakers[] = sd.getSpeakers();
+		
+		sd.findSimilar(speakers[0], 15);
 
 	}
 
