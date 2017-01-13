@@ -71,13 +71,14 @@ public class Speaker_data {
 			f = (float) Math.pow((ref_Vas - driver_Vas), 2.0f);
 			
 			current_distance = (float) Math.sqrt((double) a+b+c+d+e+f);
+			System.out.println(ref.getDriver_model() + " compared to: " + s.getDriver_model() + " distance is: " + current_distance);
 
-			System.out.println("Distance = " + current_distance);
-
-			if(current_distance <= distance)
-			{
-				System.out.println(ref.getDriver_model() + " is similar to: " + s.getDriver_model());
-			}
+//			System.out.println("Distance = " + current_distance);
+//
+//			if(current_distance <= distance)
+//			{
+//				System.out.println(ref.getDriver_model() + " is similar to: " + s.getDriver_model());
+//			}
 			i++;
 		}
 		

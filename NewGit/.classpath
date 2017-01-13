@@ -5,5 +5,6 @@
 	<classpathentry kind="lib" path="C:/Users/Admin/Downloads/jackson-databind-2.3.1.jar"/>
 	<classpathentry kind="lib" path="C:/Users/Admin/Downloads/jackson-core-2.8.1.jar"/>
 	<classpathentry kind="lib" path="C:/Users/Admin/Downloads/jackson-annotations-2.8.0.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Admin/Downloads/jsoup-1.10.2.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

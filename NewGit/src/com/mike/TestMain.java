@@ -13,17 +13,20 @@ public class TestMain {
 		Speaker_data sd = new Speaker_data();
 		
 		
-		try {
-			sd.readJson();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+//		try {
+//			sd.readJson();
+//		} catch (IOException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
 		
 		
-		Speaker speakers[] = sd.getSpeakers();
+//		Speaker speakers[] = sd.getSpeakers();
 		
-		sd.findSimilar(speakers[0], 15);
+		//sd.findSimilar(speakers[9], 15);
+		
+		GetUSSpeakerData gd = new GetUSSpeakerData();
+		gd.get12DriverLinks();
 
 	}
 
