@@ -25,8 +25,11 @@ public class TestMain {
 		
 		//sd.findSimilar(speakers[9], 15);
 		
-		GetUSSpeakerData gd = new GetUSSpeakerData();
-		gd.get12DriverLinks();
+	//	GetUSSpeakerData gd = new GetUSSpeakerData();
+	//	gd.get12DriverLinks();
+		
+		GetEminenceData ed = new GetEminenceData();
+		ed.get12DriverLinks();
 
 	}
 

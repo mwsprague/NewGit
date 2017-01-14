@@ -16,13 +16,32 @@ public class Speaker {
     float driver_Price = 120.0f;  // dollars
 
     // TS params
-    float driver_Fs = 1;
-    float driver_Re = 2;
+    float driver_Fs = 1;    // Hz
+    float driver_Re = 2;    // DC resistance Ohms
+    float driver_Le	= 2.2f; // mh
     float driver_Qes= 3;
     float driver_Qms = 4;
     float driver_Qts = 5;
-    float driver_Vas = 6;
-    float driver_Xmax = 7; //  mm
+    float driver_Vas = 6;  // liters
+    float driver_Vd = 7;   // cc
+    float driver_Cms = 8;  //mm
+    float driver_Sd = 9;  // cm2
+    float driver_Xmax = 10;  // mm
+    float driver_Xlim = 11;  // mm
+    
+    public float getDriver_Cms() {
+		return driver_Cms;
+	}
+	public void setDriver_Cms(float driver_Cms) {
+		this.driver_Cms = driver_Cms;
+	}
+	public float getDriver_Vd() {
+		return driver_Vd;
+	}
+	public void setDriver_Vd(float driver_Vd) {
+		this.driver_Vd = driver_Vd;
+	}
+	
 	public int getDriver_size() {
 		return driver_size;
 	}
