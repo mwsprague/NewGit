@@ -93,15 +93,47 @@ public class GetEminenceData {
 		//  Sensitivity*
 		//
 		v = m.get("Sensitivity*"); 
-		str = v.replaceAll("[\\D+&&[^\\.]]","");            // relace all non-digits except a dot
+		str = v.replaceAll("[\\D+&&[^\\.]]","");            // replace all non-digits except a dot
 		s.setDriver_Sensitivity(Float.parseFloat(str));
 		
+		//
+		// VC Diameter
+		//
 		v = m.get("Voice Coil Diameter");
-		p("VC String: " + v);
+		//p("VC String: " + v);
 		str = v.replaceAll("\".*", "");  // 4", 102 mm
-		p("VC: " + str);
-		
+		//p("VC: " + str);		
 		s.setDriver_VCDiameter(Float.parseFloat(str));
+		
+		//DC Resistance (Re)
+		v = m.get("DC Resistance (Re)");
+		str = v.replaceAll("[\\D+&&[^\\.]]","");   //5.52 ?
+		s.setDriver_Re(Float.parseFloat(str));
+		
+		//Resonant Frequency (fs)
+		v = m.get("Resonant Frequency (fs)");
+		str = v.replaceAll("[\\D+&&[^\\.]]","");   //51 Hz
+		s.setDriver_Fs(Float.parseFloat(str));
+
+		//"Driver Volume Displaced (Vd)", "0.106 cu.ft. / 3 liters"
+		v = m.get("Driver Volume Displaced");
+		str = v.replaceAll("cu.*","");   //"0.106 cu.ft. / 3 liters"
+		s.setDriver_Vd(Float.parseFloat(str));
+		
+		//"Mechanical Q (Qms)", "11.03"
+		v = m.get("Mechanical Q (Qms)");
+		str = v.replaceAll("[\\D+&&[^\\.]]","");   //Not really needed but just in case other characters show up
+		s.setDriver_Qms(Float.parseFloat(str));
+		
+		//"Electromagnetic Q (Qes)", "0.36"
+		v = m.get("Electromagnetic Q (Qes)");
+		str = v.replaceAll("[\\D+&&[^\\.]]","");   //Not really needed but just in case other characters show up
+		s.setDriver_Qes(Float.parseFloat(str));
+		
+		//"Total Q (Qts)", "0.35"
+		v = m.get("Total Q (Qts)");
+		str = v.replaceAll("[\\D+&&[^\\.]]","");   //Not really needed but just in case other characters show up
+		s.setDriver_Qts(Float.parseFloat(str));
 		
 		return s;
 	}

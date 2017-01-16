@@ -91,6 +91,29 @@ public class GetEminenceDataTest {
 		assertEquals(4.0f, f, 0.02f);
 		p("VC Diameter: " + f);
 		
+		f = s.getDriver_Re();
+		assertEquals(5.52f, f, 0.02f);
+		p("DC resistance (Re): " + f);
+
+		f = s.getDriver_Fs();
+		assertEquals(51f, f, 0.02f);
+		p("Resonant Freq(Fs): " + f);
+
+		f = s.getDriver_Vd();
+		assertEquals(0.106f, f, 0.02f);
+		p("Displacement (Vd): " + f);
+
+		f = s.getDriver_Qms();
+		assertEquals(11.03f, f, 0.02f);
+		p("Mechanical Q (Qms): " + f);
+
+		f = s.getDriver_Qes();
+		assertEquals(0.36f, f, 0.02f);
+		p("Electrical Q (Qes): " + f);
+		
+		f = s.getDriver_Qts();
+		assertEquals(0.35f, f, 0.02f);
+		p("Total Q (Qts): " + f);
 		
 		//fail("Not yet implemented");
 	}
