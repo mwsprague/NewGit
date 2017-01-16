@@ -66,11 +66,33 @@ public class GetEminenceDataTest {
 
 		
 		Speaker s = ed.getSpeakerFromMap(testmap);
-		int i = s.getDriver_RMSPower();
-		p("RMS power: " + i);
+		
+		float f = s.getDriver_RMSPower();
+		assertEquals(f, 600.0f, 0.01f);
+		p("RMS Watts: " + f);
+
+		f = s.getDriver_ProgramPower();
+		assertEquals(f, 1200.0f, 0.01f);
+		p("Program Power: " + f);
+
+		int i = s.getDriver_FreqResponseLow();
+		assertEquals(i, 48);
+		p("Freq Resp Low: " + i);
+
+		i = s.getDriver_FreqResponseHigh();
+		assertEquals(i, 2700);
+		p("Freq Resp Low: " + i);
+		
+		f = s.getDriver_Sensitivity();
+		assertEquals(f, 96.2f, 0.02f);
+		p("Sensitivity: " + f);
+		
+		f = s.getDriver_VCDiameter();
+		assertEquals(4.0f, f, 0.02f);
+		p("VC Diameter: " + f);
 		
 		
-		fail("Not yet implemented");
+		//fail("Not yet implemented");
 	}
 
 	

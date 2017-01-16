@@ -73,9 +73,10 @@ public class GetEminenceData {
 		//
 		//  Get RMS power  
 		//
-		v = m.get("Watts"); 
+		v = m.get("Program Power"); 
 		str = v.replaceAll("\\D+","");
-		s.setDriver_RMSPower(Integer.parseInt(str));
+		s.setDriver_ProgramPower(Integer.parseInt(str));
+		s.setDriver_RMSPower(s.getDriver_ProgramPower()/2);
 		
 		// 
 		//  Freq Range
@@ -92,10 +93,15 @@ public class GetEminenceData {
 		//  Sensitivity*
 		//
 		v = m.get("Sensitivity*"); 
-		str = v.replaceAll("\\D+","");
+		str = v.replaceAll("[\\D+&&[^\\.]]","");            // relace all non-digits except a dot
 		s.setDriver_Sensitivity(Float.parseFloat(str));
 		
+		v = m.get("Voice Coil Diameter");
+		p("VC String: " + v);
+		str = v.replaceAll("\".*", "");  // 4", 102 mm
+		p("VC: " + str);
 		
+		s.setDriver_VCDiameter(Float.parseFloat(str));
 		
 		return s;
 	}
