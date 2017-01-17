@@ -11,11 +11,18 @@ import org.jsoup.select.Elements;
 
 public class GetEminenceData {
 	
+	Map<String, String> m = null;
+	
+	public GetEminenceData() {
+		m = new HashMap<String, String>();
+	}
+
+
 	public void get12DriverLinks()
 	{
 		Document doc = null;
 		
-		Map<String, String> m = new HashMap<String, String>();
+		
 		
 		try {
 			doc = Jsoup.connect("http://www.eminence.com/speakers/speaker-detail/?model=Definimax_4012HO").get();
@@ -63,6 +70,11 @@ public class GetEminenceData {
 		m.forEach((k,v)->System.out.println("Key : " + k + " Value : " + v));
 	}
 
+	Speaker getSpeakerFromMap()
+	{
+		return getSpeakerFromMap(m); 
+	}
+	
 	Speaker getSpeakerFromMap(Map<String, String> m)
 	{
 		Speaker s = new Speaker();
@@ -134,6 +146,42 @@ public class GetEminenceData {
 		v = m.get("Total Q (Qts)");
 		str = v.replaceAll("[\\D+&&[^\\.]]","");   //Not really needed but just in case other characters show up
 		s.setDriver_Qts(Float.parseFloat(str));
+		
+		//Maximum Linear Excursion (Xmax)", "6.2 mm
+		v = m.get("Maximum Linear Excursion (Xmax)");
+		str = v.replaceAll("[\\D+&&[^\\.]]","");   //
+		s.setDriver_Xmax(Float.parseFloat(str));
+		
+		//Surface Area of Cone (Sd)", "545.4 cm2
+		v = m.get("Surface Area of Cone (Sd)");
+		str = v.replaceAll("[\\D+&&[^\\.]]","");   //
+		s.setDriver_Sd(Float.parseFloat(str));
+		
+		//Coil Inductance (Le)", "0.95m H
+		v = m.get("Coil Inductance (Le)");
+		str = v.replaceAll("[\\D+&&[^\\.]]","");   //
+		s.setDriver_Le(Float.parseFloat(str));
+		
+		//Compliance Equivalent Volume (Vas)", "53.68 liters / 1.9 cu.ft.
+		v = m.get("Compliance Equivalent Volume (Vas)");
+		str = v.replaceAll("liters.*","");   //
+		s.setDriver_Vas(Float.parseFloat(str));
+		
+		//Mechanical Compliance of Suspension (Cms)", "0.13 mm/N
+		v = m.get("Mechanical Compliance of Suspension (Cms)");
+		str = v.replaceAll("[\\D+&&[^\\.]]","");   //
+		s.setDriver_Cms(Float.parseFloat(str));
+		
+		//Magnet Weight", "109 oz.
+		v = m.get("Magnet Weight");
+		str = v.replaceAll("[\\D+&&[^\\.]]","");   //
+		s.setDriver_MagWeight(Float.parseFloat(str));
+		
+		//Net Weight", "22.5 lbs, 10.21 kg"
+		v = m.get("Net Weight");
+		str = v.replaceAll("lbs.*","");   //
+		s.setDriver_NetWeight(Float.parseFloat(str));
+		
 		
 		return s;
 	}

@@ -114,8 +114,39 @@ public class GetEminenceDataTest {
 		f = s.getDriver_Qts();
 		assertEquals(0.35f, f, 0.02f);
 		p("Total Q (Qts): " + f);
+
+		f = s.getDriver_Xmax();
+		assertEquals(6.2f, f, 0.02f);
+		p("(Xmax)mm: " + f);
+
+		f = s.getDriver_Sd();
+		assertEquals(545.4f, f, 0.02f);
+		p("Cone Area(Sd)cm2: " + f);
+		
+		f = s.getDriver_Le();
+		assertEquals(0.95f, f, 0.02f);
+		p("Coil Inductance (Le) mh: " + f);
+	
+		f = s.getDriver_Vas();
+		assertEquals(53.68f, f, 0.02f);
+		p("(Vas) Liters: " + f);
+		
+		f = s.getDriver_Cms();
+		assertEquals(0.13f, f, 0.02f);
+		p("Mechanical Compliance of Suspension (Cms)" + f);
+		
+		f = s.getDriver_MagWeight();
+		assertEquals(109.0f, f, 0.02f);
+		p("Magnet Weight oz: " + f);
+
+		f = s.getDriver_NetWeight();
+		assertEquals(22.5f, f, 0.02f);
+		p("Net Weight lbs: " + f);
+
+		
 		
 		//fail("Not yet implemented");
+		
 	}
 
 	

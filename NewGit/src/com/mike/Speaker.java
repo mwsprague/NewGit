@@ -26,7 +26,25 @@ public class Speaker {
     float driver_Vd = 7;   // cc
     float driver_Cms = 8;  //mm
     float driver_Sd = 9;  // cm2
-    float driver_Xmax = 10;  // mm
+    public float getDriver_Le() {
+		return driver_Le;
+	}
+	public void setDriver_Le(float driver_Le) {
+		this.driver_Le = driver_Le;
+	}
+	public float getDriver_Sd() {
+		return driver_Sd;
+	}
+	public void setDriver_Sd(float driver_Sd) {
+		this.driver_Sd = driver_Sd;
+	}
+	public float getDriver_Xlim() {
+		return driver_Xlim;
+	}
+	public void setDriver_Xlim(float driver_Xlim) {
+		this.driver_Xlim = driver_Xlim;
+	}
+	float driver_Xmax = 10;  // mm
     float driver_Xlim = 11;  // mm
     
     public float getDriver_Cms() {
